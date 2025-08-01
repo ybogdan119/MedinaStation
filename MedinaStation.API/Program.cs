@@ -1,3 +1,4 @@
+using MedinaStation.API.Extensions;
 using MedinaStation.Data;
 using MedinaStation.Domain.Settings;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,8 @@ builder.Services.AddDbContext<MedinaDbContext>(options =>
 
 builder.Services.Configure<RingSettings>(
     builder.Configuration.GetSection("RingSettings"));
+
+builder.Services.AddIdentityInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 
